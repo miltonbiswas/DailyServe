@@ -1,8 +1,9 @@
 <!-- Cover Photo -->
 ![Cover Image](cover1.png)
-# LocalDelivery — Everything Delivered Fast
+# 🚀 DailyServe — Everything Delivered Fast
 
-LocalDelivery is a neighborhood delivery platform that enables customers to order anything locally, shop owners to manage inventory and orders, and delivery partners to fulfill deliveries with real‑time tracking. Built with Python/Django + DRF, Channels for WebSockets, Celery for async jobs, PostgreSQL for persistence, and Docker for deployment.
+**DailyServe** is an **admin panel web app** for entrepreneurs who want to **start and manage their own local delivery business**.  
+It enables **customers** to order locally, **shop owners** to manage inventory & orders, **delivery partners** to fulfill deliveries with real-time tracking, and **admins** to control the platform with analytics.  
 
 [![Made with Django](https://img.shields.io/badge/Made%20with-Django-092E20?logo=django&logoColor=white)]()
 [![Celery](https://img.shields.io/badge/Task%20Queue-Celery-37814A?logo=celery&logoColor=white)]()
@@ -284,11 +285,15 @@ python manage.py loaddata demo_seed.json
 python manage.py seed_demo
 ```
 
-### Suggested Demo Accounts
-- **Customer**: customer@demo.com / demo123
-- **Shop Owners**: grocery@demo.com, pharmacy@demo.com, restaurant@demo.com, electronics@demo.com / demo123
-- **Delivery Partners**: delivery1@demo.com, delivery2@demo.com / demo123
-- **Admin**: admin@demo.com / admin123
+## 🔑 Demo Credentials
+
+| **Role**            | **Email(s)**                                                                 | **Password** |
+|----------------------|-------------------------------------------------------------------------------|--------------|
+| **Customer**         | customer@demo.com                                                            | demo123      |
+| **Shop Owners**      | grocery@demo.com, pharmacy@demo.com, restaurant@demo.com, electronics@demo.com | demo123      |
+| **Delivery Partners**| delivery1@demo.com, delivery2@demo.com                                        | demo123      |
+| **Admin**            | admin@demo.com                                                               | admin123     |
+
 
 ---
 
@@ -379,12 +384,13 @@ MIT — see LICENSE file.
 
 ---
 
-## Contact
-- **Product & Partnerships**: product@localdelivery.app
-- **Engineering**: dev@localdelivery.app
-- **Support**: support@localdelivery.app
-- **LinkedIn**: https://www.linkedin.com/company/localdelivery
-- **Website**: https://localdelivery.app
+<!-- Cover Photo -->
+![INFO Image](info.png)
+## Contact - **Product & Partnerships**: miltonbiswasdev@gmail.com 
+- **Engineering**: miltonbiswasdev@gmail.com
+- **Support**: miltonbiswasdev@gmail.com
+- **LinkedIn**: https://www.linkedin.com/xmiltonbiswas
+- **Website**: https://www.miltonbiswasdev.com
 
 ---
 
