@@ -1,3 +1,5 @@
+<!-- Cover Photo -->
+![Cover Image](cover1.png)
 # LocalDelivery — Everything Delivered Fast
 
 LocalDelivery is a neighborhood delivery platform that enables customers to order anything locally, shop owners to manage inventory and orders, and delivery partners to fulfill deliveries with real‑time tracking. Built with Python/Django + DRF, Channels for WebSockets, Celery for async jobs, PostgreSQL for persistence, and Docker for deployment.
