@@ -385,7 +385,7 @@ MIT — see LICENSE file.
 ---
 
 <!-- Cover Photo -->
-![INFO Image](info.png)
+![INFO Image](/card.png)
 ## Contact - **Product & Partnerships**: miltonbiswasdev@gmail.com 
 - **Engineering**: miltonbiswasdev@gmail.com
 - **Support**: miltonbiswasdev@gmail.com
