@@ -1,0 +1,420 @@
+<!-- 
+  Project: AbuDoor 🚚 - Local Delivery App
+  Made with ❤️ by Milton Biswas Developer®
+  Brand: Milton Biswas Developer
+  License: MIT
+  Location: Abu Road, Rajasthan
+  Contact: miltonbiswasdev@gmail.com
+  Phone: +916377603244
+  Instagram: www.instagram.com/miltonbiswasdev
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyServe - Everything Delivered Fast</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <div class="container">
+            <div class="landing-hero">
+                <h1>🚀 DailyServe 🚚</h1>
+                <p class="hero-subtitle">Your neighborhood delivery platform for everything you need</p>
+                
+                    <p class="branding">
+                        Made with ❤️ by 
+                    <a href="https://www.instagram.com/miltonbiswasdev" target="_blank">
+                      Milton Biswas Developer®
+                     </a>
+                    </p>
+                <div class="role-selection">
+                    <h2>Choose Your Role</h2>
+                    <div class="role-cards">
+                        <div class="role-card" data-role="customer">
+                            <div class="role-icon">🛍️</div>
+                            <h3>Customer</h3>
+                            <p>Order from local shops and track deliveries</p>
+                        </div>
+                        <div class="role-card" data-role="shop_owner">
+                            <div class="role-icon">🏪</div>
+                            <h3>Shop Owner</h3>
+                            <p>Manage your store and fulfill orders</p>
+                        </div>
+                        <div class="role-card" data-role="delivery_partner">
+                            <div class="role-icon">🚴</div>
+                            <h3>Delivery Partner</h3>
+                            <p>Deliver orders and earn money</p>
+                        </div>
+                        <div class="role-card" data-role="admin">
+                            <div class="role-icon">⚙️</div>
+                            <h3>Admin</h3>
+                            <p>Manage platform and analytics</p>
+                        </div>
+                    </div>
+                    <div class="demo-credentials">
+                        <h3>Demo Credentials</h3>
+                        <p><strong>Customer:</strong> customer@demo.com / demo123</p>
+                        <p><strong>Shop Owner:</strong> grocery@demo.com / demo123</p>
+                        <p><strong>Delivery:</strong> delivery1@demo.com / demo123</p>
+                        <p><strong>Admin:</strong> admin@demo.com / admin123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <button id="back-to-landing" class="btn btn--outline btn--sm">← Back</button>
+                    <h2 id="auth-title">Sign In</h2>
+                </div>
+                
+                <form id="auth-form" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" required>
+                    </div>
+                    <div id="register-fields" class="register-only hidden">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="fullname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Sign In</button>
+                </form>
+                
+                <div class="auth-toggle">
+                    <p>Don't have an account? <a href="#" id="toggle-register">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Dashboard -->
+    <div id="customer-dashboard" class="page dashboard">
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2>🛍️ LocalDelivery</h2>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item active" data-section="shops">Shops</a>
+                <a href="#" class="nav-item" data-section="cart">Cart <span id="cart-count" class="badge hidden">0</span></a>
+                <a href="#" class="nav-item" data-section="orders">My Orders</a>
+                <a href="#" class="nav-item" data-section="profile">Profile</a>
+            </div>
+            <button id="customer-logout" class="btn btn--outline btn--sm">Logout</button>
+        </nav>
+
+        <!-- Shops Section -->
+        <div id="customer-shops" class="dashboard-section active">
+            <div class="container">
+                <h2>Local Shops</h2>
+                <div id="shops-grid" class="shops-grid"></div>
+            </div>
+        </div>
+
+        <!-- Shop Detail View -->
+        <div id="shop-detail" class="dashboard-section">
+            <div class="container">
+                <button id="back-to-shops" class="btn btn--outline btn--sm mb-16">← Back to Shops</button>
+                <div id="shop-info" class="shop-header"></div>
+                <div class="products-section">
+                    <h3>Products</h3>
+                    <div id="products-grid" class="products-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Section -->
+        <div id="customer-cart" class="dashboard-section">
+            <div class="container">
+                <h2>Shopping Cart</h2>
+                <div id="cart-items" class="cart-items"></div>
+                <div id="cart-total" class="cart-total"></div>
+                <button id="checkout-btn" class="btn btn--primary btn--lg hidden">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Orders Section -->
+        <div id="customer-orders" class="dashboard-section">
+            <div class="container">
+                <h2>My Orders</h2>
+                <div id="orders-list" class="orders-list"></div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="customer-profile" class="dashboard-section">
+            <div class="container">
+                <h2>Profile</h2>
+                <div class="profile-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Owner Dashboard -->
+    <div id="shop-dashboard" class="page dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2>🏪 Shop Dashboard</h2>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item active" data-section="shop-overview">Overview</a>
+                <a href="#" class="nav-item" data-section="shop-products">Products</a>
+                <a href="#" class="nav-item" data-section="shop-orders">Orders</a>
+                <a href="#" class="nav-item" data-section="shop-reports">Reports</a>
+            </div>
+            <button id="shop-logout" class="btn btn--outline btn--sm">Logout</button>
+        </nav>
+
+        <!-- Overview Section -->
+        <div id="shop-overview" class="dashboard-section active">
+            <div class="container">
+                <h2>Shop Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-products">0</div>
+                        <div class="stat-label">Total Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pending-orders">0</div>
+                        <div class="stat-label">Pending Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="completed-orders">0</div>
+                        <div class="stat-label">Completed Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-revenue">$0</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                </div>
+                <div id="recent-orders">
+                    <h3>Recent Orders</h3>
+                    <div id="recent-orders-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Management -->
+        <div id="shop-products" class="dashboard-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Products Management</h2>
+                    <button id="add-product-btn" class="btn btn--primary">Add Product</button>
+                </div>
+                <div id="shop-products-list" class="products-list"></div>
+            </div>
+        </div>
+
+        <!-- Orders Management -->
+        <div id="shop-orders" class="dashboard-section">
+            <div class="container">
+                <h2>Orders Management</h2>
+                <div id="shop-orders-list" class="orders-list"></div>
+            </div>
+        </div>
+
+        <!-- Reports Section -->
+        <div id="shop-reports" class="dashboard-section">
+            <div class="container">
+                <h2>Reports & Analytics</h2>
+                <div class="reports-content">
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="sales-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Partner Dashboard -->
+    <div id="delivery-dashboard" class="page dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2>🚴 Delivery Dashboard</h2>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item active" data-section="delivery-overview">Overview</a>
+                <a href="#" class="nav-item" data-section="available-orders">Available</a>
+                <a href="#" class="nav-item" data-section="my-deliveries">My Deliveries</a>
+                <a href="#" class="nav-item" data-section="delivery-history">History</a>
+            </div>
+            <button id="delivery-logout" class="btn btn--outline btn--sm">Logout</button>
+        </nav>
+
+        <!-- Overview Section -->
+        <div id="delivery-overview" class="dashboard-section active">
+            <div class="container">
+                <h2>Delivery Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="delivery-rating">4.8</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-deliveries-count">245</div>
+                        <div class="stat-label">Total Deliveries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="active-deliveries">1</div>
+                        <div class="stat-label">Active Deliveries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="earnings-today">$45.20</div>
+                        <div class="stat-label">Today's Earnings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Orders -->
+        <div id="available-orders" class="dashboard-section">
+            <div class="container">
+                <h2>Available Delivery Requests</h2>
+                <div id="available-deliveries-list" class="deliveries-list"></div>
+            </div>
+        </div>
+
+        <!-- My Deliveries -->
+        <div id="my-deliveries" class="dashboard-section">
+            <div class="container">
+                <h2>My Current Deliveries</h2>
+                <div id="current-deliveries-list" class="deliveries-list"></div>
+            </div>
+        </div>
+
+        <!-- Delivery History -->
+        <div id="delivery-history" class="dashboard-section">
+            <div class="container">
+                <h2>Delivery History</h2>
+                <div id="delivery-history-list" class="deliveries-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="page dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2>⚙️ Admin Panel</h2>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item active" data-section="admin-overview">Overview</a>
+                <a href="#" class="nav-item" data-section="admin-users">Users</a>
+                <a href="#" class="nav-item" data-section="admin-shops">Shops</a>
+                <a href="#" class="nav-item" data-section="admin-analytics">Analytics</a>
+            </div>
+            <button id="admin-logout" class="btn btn--outline btn--sm">Logout</button>
+        </nav>
+
+        <!-- Overview Section -->
+        <div id="admin-overview" class="dashboard-section active">
+            <div class="container">
+                <h2>Platform Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-users">8</div>
+                        <div class="stat-label">Total Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-shops">4</div>
+                        <div class="stat-label">Active Shops</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-orders">150</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="platform-revenue">$12,450</div>
+                        <div class="stat-label">Platform Revenue</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Management -->
+        <div id="admin-users" class="dashboard-section">
+            <div class="container">
+                <h2>Users Management</h2>
+                <div id="users-list" class="users-list"></div>
+            </div>
+        </div>
+
+        <!-- Shops Management -->
+        <div id="admin-shops" class="dashboard-section">
+            <div class="container">
+                <h2>Shops Management</h2>
+                <div id="admin-shops-list" class="shops-list"></div>
+            </div>
+        </div>
+
+        <!-- Analytics -->
+        <div id="admin-analytics" class="dashboard-section">
+            <div class="container">
+                <h2>Platform Analytics</h2>
+                <div class="analytics-content">
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="platform-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="product-modal-title">Add Product</h3>
+                <button id="close-product-modal" class="modal-close">×</button>
+            </div>
+            <form id="product-form">
+                <div class="form-group">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" id="product-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Price</label>
+                    <input type="number" id="product-price" class="form-control" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Stock</label>
+                    <input type="number" id="product-stock" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <input type="text" id="product-category" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Emoji Icon</label>
+                    <input type="text" id="product-image" class="form-control" placeholder="🍎">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn--outline" id="cancel-product">Cancel</button>
+                    <button type="submit" class="btn btn--primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
